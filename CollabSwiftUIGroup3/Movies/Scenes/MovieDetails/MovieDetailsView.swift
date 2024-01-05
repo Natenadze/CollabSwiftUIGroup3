@@ -33,8 +33,8 @@ struct MovieDetailsView: View {
                 Spacer()
             }
             .ignoresSafeArea(.all, edges: .top)
-        .navigationBarBackButtonHidden(true)
-    }
+            .navigationBarBackButtonHidden(true)
+        }
     }
     
     // MARK: - Content
@@ -58,13 +58,13 @@ struct MovieDetailsView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 6)
     }
-
+    
     // MARK: - Return Button
     private func returnButton() -> some View {
         Button {
             if !viewModel.path.isEmpty {
-                    viewModel.path.removeLast(viewModel.path.count)
-                }
+                viewModel.path.removeLast(viewModel.path.count)
+            }
         } label: {
             Image(systemName: "chevron.left")
                 .foregroundStyle(.white)

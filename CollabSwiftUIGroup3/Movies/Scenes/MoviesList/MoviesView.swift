@@ -37,7 +37,7 @@ struct MoviesView: View {
     // MARK: - Content
     private func rowContentView(movie: Movie) -> some View {
         HStack(spacing: 16) {
-            PosterView(movie: movie, 
+            PosterView(movie: movie,
                        posterPath: movie.posterPath,
                        frameWidth: 120,
                        frameHeight: 140,
@@ -65,7 +65,7 @@ struct MoviesView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundStyle(.white)
     }
-  
+    
     private func movieReleaseDateView(movie: Movie) -> some View {
         Text("\(movie.releaseDate)")
             .font(.system(size: 14))

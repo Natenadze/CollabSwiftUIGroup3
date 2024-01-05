@@ -111,18 +111,10 @@
 		5D7930E92B47E1D400A1335E /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				EE4D52B72B483AB500B7BE2B /* Components */,
-				EE4D52B62B483AB000B7BE2B /* Model */,
 				EE4D52B32B483A9400B7BE2B /* Scenes */,
-				EE14C1312B47F4A600943C09 /* MovieModel.swift */,
-				5D7930F52B47F2AA00A1335E /* MoviesView.swift */,
-				EE14C12F2B47F49C00943C09 /* MoviesViewModel.swift */,
-				EE4D52A52B481AE900B7BE2B /* MovieDetailsView.swift */,
-				EE4D52A72B481BD200B7BE2B /* MovieDetailsViewModel.swift */,
-				EE4D52A92B481E8F00B7BE2B /* MovieMockData.swift */,
-				EE4D52AB2B48247600B7BE2B /* PosterView.swift */,
-				EE4D52AF2B482B1200B7BE2B /* RatingStarView.swift */,
-				EE4D52B12B482BB800B7BE2B /* VoteAverageView.swift */,
+				EE4D52B62B483AB000B7BE2B /* Model */,
+				EE4D52B72B483AB500B7BE2B /* Components */,
+				EE4D52B82B483B1200B7BE2B /* Helper */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -162,8 +154,8 @@
 		EE4D52B32B483A9400B7BE2B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				EE4D52B52B483AA900B7BE2B /* MovieDetails */,
 				EE4D52B42B483A9D00B7BE2B /* MoviesList */,
+				EE4D52B52B483AA900B7BE2B /* MovieDetails */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -171,6 +163,8 @@
 		EE4D52B42B483A9D00B7BE2B /* MoviesList */ = {
 			isa = PBXGroup;
 			children = (
+				EE14C12F2B47F49C00943C09 /* MoviesViewModel.swift */,
+				5D7930F52B47F2AA00A1335E /* MoviesView.swift */,
 			);
 			path = MoviesList;
 			sourceTree = "<group>";
@@ -178,6 +172,8 @@
 		EE4D52B52B483AA900B7BE2B /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
+				EE4D52A72B481BD200B7BE2B /* MovieDetailsViewModel.swift */,
+				EE4D52A52B481AE900B7BE2B /* MovieDetailsView.swift */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -185,6 +181,7 @@
 		EE4D52B62B483AB000B7BE2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE14C1312B47F4A600943C09 /* MovieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,8 +189,19 @@
 		EE4D52B72B483AB500B7BE2B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EE4D52AB2B48247600B7BE2B /* PosterView.swift */,
+				EE4D52AF2B482B1200B7BE2B /* RatingStarView.swift */,
+				EE4D52B12B482BB800B7BE2B /* VoteAverageView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EE4D52B82B483B1200B7BE2B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D52A92B481E8F00B7BE2B /* MovieMockData.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

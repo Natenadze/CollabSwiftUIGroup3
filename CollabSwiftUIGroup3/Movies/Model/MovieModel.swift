@@ -16,7 +16,7 @@ struct Movie: Decodable, Hashable {
     let overview: String
     let posterPath, releaseDate, title: String
     let voteAverage: Double
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case overview

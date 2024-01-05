@@ -11,7 +11,7 @@ struct RatingStarView: View {
     // MARK: - Properties
     let frameWidth: CGFloat
     let frameHeight: CGFloat
-
+    
     // MARK: - Body
     var body: some View {
         Image(systemName: "star.fill")

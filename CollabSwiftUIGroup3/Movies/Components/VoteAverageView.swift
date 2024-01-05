@@ -11,7 +11,7 @@ struct VoteAverageView: View {
     // MARK: - Properties
     let movie: Movie
     let font: Font
-
+    
     // MARK: - Body
     var body: some View {
         Text("\(movie.voteAverage, specifier: "%.1f")")
@@ -20,12 +20,3 @@ struct VoteAverageView: View {
     }
 }
 
-
-/*
- private func voteAverageView(movie: Movie) -> some View {
-     Text("\(movie.voteAverage, specifier: "%.1f")")
-         .font(.system(size: 16))
-         .foregroundStyle(.white)
- }
- 
- */

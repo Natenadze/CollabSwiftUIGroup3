@@ -14,7 +14,7 @@ struct PosterView: View {
     let frameWidth: CGFloat
     let frameHeight: CGFloat
     let cornerRadius: CGFloat?
-
+    
     // MARK: - Body
     var body: some View {
         AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { phase in
