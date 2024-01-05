@@ -9,8 +9,9 @@ import SwiftUI
 
 final class MovieDetailsViewModel: ObservableObject {
     // MARK: - Properties
-    let movie: Movie
     @Binding var path: NavigationPath
+    
+    var movie: Movie
     
     var posterPath: String {
         movie.posterPath
