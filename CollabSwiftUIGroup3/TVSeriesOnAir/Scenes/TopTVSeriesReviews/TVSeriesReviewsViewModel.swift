@@ -12,7 +12,7 @@ final class TVSeriesReviewsViewModel: ObservableObject {
     // MARK: - Properties
     @Published private(set) var allReviews = [Review]()
 
-    private var series: TVSeriesOnAir
+    var series: TVSeriesOnAir
     private let key = "2c4048c6f599fb101b867ea41bf01c69"
     
     // MARK: - Init

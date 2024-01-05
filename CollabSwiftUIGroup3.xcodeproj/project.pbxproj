@@ -158,12 +158,9 @@
 		5D7930ED2B47E25400A1335E /* TVSeriesOnAir */ = {
 			isa = PBXGroup;
 			children = (
+				EE4D52C62B48C1D600B7BE2B /* Scenes */,
 				EE4D52C52B48AE6900B7BE2B /* Models */,
-				EE4D52B92B48741300B7BE2B /* TVSeriesOnAirViewModel.swift */,
-				EE4D52BD2B4877BE00B7BE2B /* SeriesGridView.swift */,
-				5D7930FD2B47F2ED00A1335E /* TVSeriesOnAirView.swift */,
-				EE4D52BF2B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift */,
-				EE4D52C12B488B4F00B7BE2B /* TVSeriesReviewsView.swift */,
+				EE4D52C92B48C22E00B7BE2B /* Components */,
 			);
 			path = TVSeriesOnAir;
 			sourceTree = "<group>";
@@ -228,6 +225,41 @@
 				EE4D52C32B48A74A00B7BE2B /* TVSeriesReviewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EE4D52C62B48C1D600B7BE2B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D52C72B48C1E500B7BE2B /* TopTVSeries */,
+				EE4D52C82B48C1F700B7BE2B /* TopTVSeriesReviews */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EE4D52C72B48C1E500B7BE2B /* TopTVSeries */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D52B92B48741300B7BE2B /* TVSeriesOnAirViewModel.swift */,
+				5D7930FD2B47F2ED00A1335E /* TVSeriesOnAirView.swift */,
+			);
+			path = TopTVSeries;
+			sourceTree = "<group>";
+		};
+		EE4D52C82B48C1F700B7BE2B /* TopTVSeriesReviews */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D52BF2B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift */,
+				EE4D52C12B488B4F00B7BE2B /* TVSeriesReviewsView.swift */,
+			);
+			path = TopTVSeriesReviews;
+			sourceTree = "<group>";
+		};
+		EE4D52C92B48C22E00B7BE2B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D52BD2B4877BE00B7BE2B /* SeriesGridView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
