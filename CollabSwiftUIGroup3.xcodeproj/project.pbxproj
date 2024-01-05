@@ -21,6 +21,7 @@
 		5D7931122B48536C00A1335E /* CinemaMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931112B48536C00A1335E /* CinemaMoviesViewModel.swift */; };
 		5D7931152B4853BC00A1335E /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931142B4853BC00A1335E /* MovieDetailsView.swift */; };
 		5D7931172B4853D700A1335E /* RatingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931162B4853D700A1335E /* RatingBarView.swift */; };
+		5D7931192B486F2100A1335E /* MovieGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931182B486F2100A1335E /* MovieGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5D7931112B48536C00A1335E /* CinemaMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMoviesViewModel.swift; sourceTree = "<group>"; };
 		5D7931142B4853BC00A1335E /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		5D7931162B4853D700A1335E /* RatingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBarView.swift; sourceTree = "<group>"; };
+		5D7931182B486F2100A1335E /* MovieGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				5D7930FB2B47F2DF00A1335E /* CinemaMoviesView.swift */,
 				5D7931142B4853BC00A1335E /* MovieDetailsView.swift */,
 				5D7931162B4853D700A1335E /* RatingBarView.swift */,
+				5D7931182B486F2100A1335E /* MovieGridView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				5D7930DB2B47E16000A1335E /* CollabSwiftUIGroup3App.swift in Sources */,
 				5D7931122B48536C00A1335E /* CinemaMoviesViewModel.swift in Sources */,
 				5D7930FA2B47F2C900A1335E /* TVSeriesView.swift in Sources */,
+				5D7931192B486F2100A1335E /* MovieGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

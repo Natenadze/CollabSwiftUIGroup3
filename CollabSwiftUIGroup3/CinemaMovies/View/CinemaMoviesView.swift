@@ -10,10 +10,10 @@ import SwiftUI
 struct CinemaMoviesView: View {
     
     @StateObject private var viewModel = CinemaMoviesViewModel()
-   
+    
     
     let gridItems: [GridItem] = [
-        GridItem(.adaptive(minimum: 150, maximum: 250))
+        GridItem(.adaptive(minimum: 150, maximum: 250), spacing: 20)
     ]
     
     // MARK: - Body
@@ -24,13 +24,13 @@ struct CinemaMoviesView: View {
             NavigationStack {
                 ZStack {
                     Color.black.ignoresSafeArea()
+                    
                     ScrollView {
-                        LazyVGrid(columns: gridItems, spacing: 10) {
+                        LazyVGrid(columns: gridItems, spacing: 16) {
                             ForEach(viewModel.allCinemaMovies) { movie in
                                 NavigationLink(value: movie) {
-                                    ProductGridView(movie: movie)
+                                    MovieGridView(movie: movie)
                                 }
-                                
                             }
                         }
                         .navigationDestination(for: Movies.self) { movie in
@@ -39,50 +39,13 @@ struct CinemaMoviesView: View {
                     }
                 }
             }
-            
         }
-        
-    }
-}
-
-struct ProductGridView: View {
-    
-    // MARK: - properties
-    
-    let movie: Movies
-    
-    // MARK: - init
-    init(movie: Movies) {
-        self.movie = movie
-    }
-    
-    // MARK: - body
-    var body: some View {
-        
-        
-        VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500" + movie.posterPath), content: { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            }) {
-                ProgressView()
-            }
-            .frame(width: 150, height: 200)
-            
-            
-            Text(movie.title)
-                .foregroundStyle(.white)
-                .lineLimit(2)
-            RatingBarView(selected: movie.voteAverage)
-        }
-        
-        
     }
 }
 
 
 
+// MARK: - Preview
 #Preview {
     CinemaMoviesView()
 }

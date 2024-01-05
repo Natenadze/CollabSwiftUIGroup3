@@ -18,7 +18,7 @@ struct RatingBarView: View {
         self.selected = selected
     }
     
-    // MARK: - body
+    // MARK: - Body
     var body: some View {
         stars
             .overlay(
@@ -26,7 +26,7 @@ struct RatingBarView: View {
             )
     }
     
-    // MARK: - components
+    // MARK: - Components
     var stars: some View {
         HStack {
             ForEach(0..<5) { _ in
