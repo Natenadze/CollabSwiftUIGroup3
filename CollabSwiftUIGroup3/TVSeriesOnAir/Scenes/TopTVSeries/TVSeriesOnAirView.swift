@@ -11,7 +11,7 @@ struct TVSeriesOnAirView: View {
     // MARK: - Properties
     @StateObject private var viewModel = TVSeriesOnAirViewModel()
     
-    let columns: [GridItem] = [
+    private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: 150, maximum: 250))
     ]
     private let backgroundColor = Color(red: 18/255, green: 18/255, blue: 18/255)
