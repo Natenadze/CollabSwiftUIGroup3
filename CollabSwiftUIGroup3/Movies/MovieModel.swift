@@ -11,7 +11,7 @@ struct MoviesResponse: Decodable {
     let results: [Movie]
 }
 
-struct Movie: Decodable {
+struct Movie: Decodable, Hashable {
     let id: Int
     let posterPath, releaseDate, title: String
     let voteAverage: Double

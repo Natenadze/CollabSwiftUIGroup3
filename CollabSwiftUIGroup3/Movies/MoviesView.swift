@@ -14,14 +14,20 @@ struct MoviesView: View {
     
     private let backgroundColor = Color(red: 18/255, green: 18/255, blue: 18/255)
     
+    // MARK: - Body
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List(viewModel.allMovies, id: \.id) { movie in
-                HStack(spacing: 16) {
-                    posterView(movie: movie)
-                    infoStack(movie: movie)
+                NavigationLink(value: movie) {
+                    HStack(spacing: 16) {
+                        posterView(movie: movie)
+                        infoStack(movie: movie)
+                    }
+                    .listRowBackground(backgroundColor)
                 }
-                .listRowBackground(backgroundColor)
+            }
+            .navigationDestination(for: Movie.self) { movie in
+                MovieDetailsView(viewModel: MovieDetailsViewModel(movie: movie, path: $path))
             }
             .background(backgroundColor)
             .scrollContentBackground(.hidden)
@@ -31,29 +37,36 @@ struct MoviesView: View {
         }
     }
     
-    // MARK: - Subviews
+    // MARK: - Poster View
     private func posterView(movie: Movie) -> some View {
         AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { phase in
             switch phase {
             case .success(let image):
-                image.resizable()
-                    .frame(width: 120, height: 140)
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                posterImageView(image: image)
             case .empty:
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.gray.opacity(0.6))
-                    .frame(width: 120, height: 140)
+                emptyStateView()
             case .failure(_):
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(width: 120, height: 140)
+                emptyStateView()
             @unknown default:
                 EmptyView()
             }
         }
     }
     
+    private func posterImageView(image: Image) -> some View {
+        image.resizable()
+            .frame(width: 120, height: 140)
+            .scaledToFit()
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+    
+    private func emptyStateView() -> some View {
+        RoundedRectangle(cornerRadius: 12)
+            .fill(Color.gray.opacity(0.2))
+            .frame(width: 120, height: 140)
+    }
+    
+    // MARK: - Info View
     private func infoStack(movie: Movie) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             movieTitleView(movie: movie)
