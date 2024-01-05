@@ -28,6 +28,9 @@
 		EE4D52BA2B48741300B7BE2B /* TVSeriesOnAirViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52B92B48741300B7BE2B /* TVSeriesOnAirViewModel.swift */; };
 		EE4D52BC2B48747B00B7BE2B /* TVSeriesOnAirModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52BB2B48747B00B7BE2B /* TVSeriesOnAirModel.swift */; };
 		EE4D52BE2B4877BE00B7BE2B /* SeriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52BD2B4877BE00B7BE2B /* SeriesGridView.swift */; };
+		EE4D52C02B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52BF2B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift */; };
+		EE4D52C22B488B4F00B7BE2B /* TVSeriesReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52C12B488B4F00B7BE2B /* TVSeriesReviewsView.swift */; };
+		EE4D52C42B48A74A00B7BE2B /* TVSeriesReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52C32B48A74A00B7BE2B /* TVSeriesReviewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		EE4D52B92B48741300B7BE2B /* TVSeriesOnAirViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesOnAirViewModel.swift; sourceTree = "<group>"; };
 		EE4D52BB2B48747B00B7BE2B /* TVSeriesOnAirModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesOnAirModel.swift; sourceTree = "<group>"; };
 		EE4D52BD2B4877BE00B7BE2B /* SeriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesGridView.swift; sourceTree = "<group>"; };
+		EE4D52BF2B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesReviewsViewModel.swift; sourceTree = "<group>"; };
+		EE4D52C12B488B4F00B7BE2B /* TVSeriesReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesReviewsView.swift; sourceTree = "<group>"; };
+		EE4D52C32B48A74A00B7BE2B /* TVSeriesReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesReviewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,10 +158,12 @@
 		5D7930ED2B47E25400A1335E /* TVSeriesOnAir */ = {
 			isa = PBXGroup;
 			children = (
-				EE4D52BB2B48747B00B7BE2B /* TVSeriesOnAirModel.swift */,
+				EE4D52C52B48AE6900B7BE2B /* Models */,
 				EE4D52B92B48741300B7BE2B /* TVSeriesOnAirViewModel.swift */,
-				5D7930FD2B47F2ED00A1335E /* TVSeriesOnAirView.swift */,
 				EE4D52BD2B4877BE00B7BE2B /* SeriesGridView.swift */,
+				5D7930FD2B47F2ED00A1335E /* TVSeriesOnAirView.swift */,
+				EE4D52BF2B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift */,
+				EE4D52C12B488B4F00B7BE2B /* TVSeriesReviewsView.swift */,
 			);
 			path = TVSeriesOnAir;
 			sourceTree = "<group>";
@@ -211,6 +219,15 @@
 				EE4D52A92B481E8F00B7BE2B /* MovieMockData.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		EE4D52C52B48AE6900B7BE2B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D52BB2B48747B00B7BE2B /* TVSeriesOnAirModel.swift */,
+				EE4D52C32B48A74A00B7BE2B /* TVSeriesReviewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,10 +318,13 @@
 				EE4D52BE2B4877BE00B7BE2B /* SeriesGridView.swift in Sources */,
 				EE4D52A82B481BD200B7BE2B /* MovieDetailsViewModel.swift in Sources */,
 				EE4D52AA2B481E8F00B7BE2B /* MovieMockData.swift in Sources */,
+				EE4D52C42B48A74A00B7BE2B /* TVSeriesReviewModel.swift in Sources */,
 				5D7930FE2B47F2ED00A1335E /* TVSeriesOnAirView.swift in Sources */,
 				5D7930F62B47F2AA00A1335E /* MoviesView.swift in Sources */,
 				5D7930DB2B47E16000A1335E /* CollabSwiftUIGroup3App.swift in Sources */,
 				EE4D52B02B482B1200B7BE2B /* RatingStarView.swift in Sources */,
+				EE4D52C02B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift in Sources */,
+				EE4D52C22B488B4F00B7BE2B /* TVSeriesReviewsView.swift in Sources */,
 				5D7930FA2B47F2C900A1335E /* TVSeriesView.swift in Sources */,
 				EE14C1302B47F49C00943C09 /* MoviesViewModel.swift in Sources */,
 			);

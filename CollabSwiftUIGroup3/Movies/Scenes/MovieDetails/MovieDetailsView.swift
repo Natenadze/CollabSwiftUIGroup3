@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieDetailsView: View {
     // MARK: - Properties
-    @StateObject var viewModel: MovieDetailsViewModel
+    @ObservedObject var viewModel: MovieDetailsViewModel
     
     private let backgroundColor = Color(red: 18/255, green: 18/255, blue: 18/255)
     private let accentColor = Color(red: 229/255, green: 8/255, blue: 21/255)

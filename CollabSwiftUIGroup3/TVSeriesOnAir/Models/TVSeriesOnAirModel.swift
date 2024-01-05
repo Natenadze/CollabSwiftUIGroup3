@@ -11,13 +11,12 @@ struct TVSeriesOnAirResponse: Codable {
     let results: [TVSeriesOnAir]
 }
 
-// MARK: - Result
 struct TVSeriesOnAir: Codable, Hashable {
     let id: Int
     let overview: String
     let posterPath, firstAirDate, name: String
     let voteAverage: Double
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case overview
@@ -27,3 +26,4 @@ struct TVSeriesOnAir: Codable, Hashable {
         case voteAverage = "vote_average"
     }
 }
+

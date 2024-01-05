@@ -16,12 +16,12 @@ final class TVSeriesOnAirViewModel: ObservableObject {
     
     // MARK: - Init
     init() {
-        fetchMovies()
+        fetchSeries()
     }
     
     // MARK: - Methods
-    private func fetchMovies() {
-        let url = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(key)"
+    private func fetchSeries() {
+        let url = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(key)"
         Task {
             if let TVSeriesOnAir: TVSeriesOnAirResponse = try await NetworkManager().performURLRequest(url) {
                 await MainActor.run {

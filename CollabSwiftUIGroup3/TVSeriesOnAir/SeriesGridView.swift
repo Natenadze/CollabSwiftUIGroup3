@@ -49,6 +49,8 @@ struct SeriesGridView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
+
+// MARK: - Preview
 #Preview {
     SeriesGridView(series: TVSeriesOnAir(id: 12, overview: "Test", posterPath: "placeholder", firstAirDate: "12", name: "Test", voteAverage: 1.5))
 }
