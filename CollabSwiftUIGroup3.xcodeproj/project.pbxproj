@@ -11,6 +11,7 @@
 		5D7930DD2B47E16000A1335E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7930DC2B47E16000A1335E /* ContentView.swift */; };
 		5D7930DF2B47E16100A1335E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7930DE2B47E16100A1335E /* Assets.xcassets */; };
 		5D7930E22B47E16100A1335E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7930E12B47E16100A1335E /* Preview Assets.xcassets */; };
+		5D7930F02B47E28400A1335E /* NatenWorking in Frameworks */ = {isa = PBXBuildFile; productRef = 5D7930EF2B47E28400A1335E /* NatenWorking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7930F02B47E28400A1335E /* NatenWorking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +53,13 @@
 		5D7930D92B47E16000A1335E /* CollabSwiftUIGroup3 */ = {
 			isa = PBXGroup;
 			children = (
-				5D7930DA2B47E16000A1335E /* CollabSwiftUIGroup3App.swift */,
+				5D7930E82B47E1C900A1335E /* App */,
 				5D7930DC2B47E16000A1335E /* ContentView.swift */,
+				5D7930E92B47E1D400A1335E /* Movies */,
+				5D7930EA2B47E21A00A1335E /* Persons */,
+				5D7930EB2B47E22100A1335E /* TVSeries */,
+				5D7930EC2B47E22E00A1335E /* CinemaMovies */,
+				5D7930ED2B47E25400A1335E /* TVSeriesOnAir */,
 				5D7930DE2B47E16100A1335E /* Assets.xcassets */,
 				5D7930E02B47E16100A1335E /* Preview Content */,
 			);
@@ -65,6 +72,49 @@
 				5D7930E12B47E16100A1335E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5D7930E82B47E1C900A1335E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5D7930DA2B47E16000A1335E /* CollabSwiftUIGroup3App.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5D7930E92B47E1D400A1335E /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		5D7930EA2B47E21A00A1335E /* Persons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persons;
+			sourceTree = "<group>";
+		};
+		5D7930EB2B47E22100A1335E /* TVSeries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVSeries;
+			sourceTree = "<group>";
+		};
+		5D7930EC2B47E22E00A1335E /* CinemaMovies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CinemaMovies;
+			sourceTree = "<group>";
+		};
+		5D7930ED2B47E25400A1335E /* TVSeriesOnAir */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVSeriesOnAir;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +133,9 @@
 			dependencies = (
 			);
 			name = CollabSwiftUIGroup3;
+			packageProductDependencies = (
+				5D7930EF2B47E28400A1335E /* NatenWorking */,
+			);
 			productName = CollabSwiftUIGroup3;
 			productReference = 5D7930D72B47E16000A1335E /* CollabSwiftUIGroup3.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 5D7930CE2B47E16000A1335E;
+			packageReferences = (
+				5D7930EE2B47E28300A1335E /* XCRemoteSwiftPackageReference "NatenWorking" */,
+			);
 			productRefGroup = 5D7930D82B47E16000A1335E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D7930EE2B47E28300A1335E /* XCRemoteSwiftPackageReference "NatenWorking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Natenadze/NatenWorking.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D7930EF2B47E28400A1335E /* NatenWorking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D7930EE2B47E28300A1335E /* XCRemoteSwiftPackageReference "NatenWorking" */;
+			productName = NatenWorking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5D7930CF2B47E16000A1335E /* Project object */;
 }
