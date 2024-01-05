@@ -19,12 +19,9 @@ struct MoviesView: View {
         NavigationStack(path: $path) {
             List(viewModel.allMovies, id: \.id) { movie in
                 NavigationLink(value: movie) {
-                    HStack(spacing: 16) {
-                        posterView(movie: movie)
-                        infoStack(movie: movie)
-                    }
-                    .listRowBackground(backgroundColor)
+                    rowContentView(movie: movie)
                 }
+                .listRowBackground(backgroundColor)
             }
             .navigationDestination(for: Movie.self) { movie in
                 MovieDetailsView(viewModel: MovieDetailsViewModel(movie: movie, path: $path))
@@ -37,72 +34,40 @@ struct MoviesView: View {
         }
     }
     
-    // MARK: - Poster View
-    private func posterView(movie: Movie) -> some View {
-        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { phase in
-            switch phase {
-            case .success(let image):
-                posterImageView(image: image)
-            case .empty:
-                emptyStateView()
-            case .failure(_):
-                emptyStateView()
-            @unknown default:
-                EmptyView()
-            }
+    // MARK: - Content
+    private func rowContentView(movie: Movie) -> some View {
+        HStack(spacing: 16) {
+            PosterView(movie: movie, 
+                       posterPath: movie.posterPath,
+                       frameWidth: 120,
+                       frameHeight: 140,
+                       cornerRadius: 12)
+            infoStack(movie: movie)
         }
     }
     
-    private func posterImageView(image: Image) -> some View {
-        image.resizable()
-            .frame(width: 120, height: 140)
-            .scaledToFit()
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-    
-    private func emptyStateView() -> some View {
-        RoundedRectangle(cornerRadius: 12)
-            .fill(Color.gray.opacity(0.2))
-            .frame(width: 120, height: 140)
-    }
-    
-    // MARK: - Info View
+    // MARK: - InfoStack
     private func infoStack(movie: Movie) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             movieTitleView(movie: movie)
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 10) {
-                    ratingStarView()
-                    voteAverageView(movie: movie)
-                    movieReleaseDateView(movie: movie)
+                    RatingStarView(frameWidth: 20, frameHeight: 20)
+                    VoteAverageView(movie: movie, font: .system(size: 16))
                 }
+                movieReleaseDateView(movie: movie)
             }
         }
     }
     
     private func movieTitleView(movie: Movie) -> some View {
         Text(movie.title)
-            .font(.system(size: 18, weight: .bold))
+            .font(.system(size: 16, weight: .bold))
             .foregroundStyle(.white)
     }
-    
-    private func ratingStarView() -> some View {
-        Image(systemName: "star.fill")
-            .renderingMode(.original)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 20, height: 20)
-    }
-    
-    private func voteAverageView(movie: Movie) -> some View {
-        Text("\(movie.voteAverage, specifier: "%.1f")")
-            .font(.system(size: 16))
-            .foregroundStyle(.white)
-    }
-    
+  
     private func movieReleaseDateView(movie: Movie) -> some View {
         Text("\(movie.releaseDate)")
-            .font(.subheadline)
             .font(.system(size: 14))
             .foregroundStyle(.white)
     }

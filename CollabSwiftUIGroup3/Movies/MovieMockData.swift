@@ -12,6 +12,7 @@ struct MovieMockData {
     
     static let previewExample = Movie(
         id: 1,
+        overview: "Test Description",
         posterPath: "placeholder",
         releaseDate: "12-09",
         title: "Test Title",

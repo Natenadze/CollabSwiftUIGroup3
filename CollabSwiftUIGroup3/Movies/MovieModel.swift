@@ -13,11 +13,13 @@ struct MoviesResponse: Decodable {
 
 struct Movie: Decodable, Hashable {
     let id: Int
+    let overview: String
     let posterPath, releaseDate, title: String
     let voteAverage: Double
 
     enum CodingKeys: String, CodingKey {
         case id
+        case overview
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title

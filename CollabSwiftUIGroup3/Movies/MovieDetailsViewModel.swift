@@ -20,6 +20,10 @@ final class MovieDetailsViewModel: ObservableObject {
         movie.title
     }
     
+    var overview: String {
+        movie.overview
+    }
+    
     var releaseDate: String {
         movie.releaseDate
     }
