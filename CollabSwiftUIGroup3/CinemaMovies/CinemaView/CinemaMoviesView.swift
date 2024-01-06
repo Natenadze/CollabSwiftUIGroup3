@@ -29,12 +29,12 @@ struct CinemaMoviesView: View {
                         LazyVGrid(columns: gridItems, spacing: 16) {
                             ForEach(viewModel.allCinemaMovies) { movie in
                                 NavigationLink(value: movie) {
-                                    MovieGridView(movie: movie)
+                                    CinemaMovieGridView(movie: movie)
                                 }
                             }
                         }
-                        .navigationDestination(for: Movies.self) { movie in
-                            MovieDetailsView(movie: movie)
+                        .navigationDestination(for: CinemaMovies.self) { movie in
+                            CinemaMovieDetailsView(movie: movie)
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 //
-//  MovieDetailsView.swift
+//  CinemaMovieDetailsView.swift
 //  CollabSwiftUIGroup3
 //
 //  Created by Davit Natenadze on 05.01.24.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct MovieDetailsView: View {
+struct CinemaMovieDetailsView: View {
     
     // MARK: - Properties
-    let movie: Movies
+    let movie: CinemaMovies
     
     
     // MARK: - Body
@@ -34,7 +34,7 @@ struct MovieDetailsView: View {
 
 // MARK: - Preview
 #Preview {
-    let movie = Movies(backdropPath: "a", id: 2, overview: "", posterPath: "https://image.tmdb.org/t/p/w500/sRLC052ieEzkQs9dEtPMfFxYkej.jpg", releaseDate: "", title: "movie title 1", voteAverage: 12, voteCount: 1)
+    let movie = CinemaMovies(backdropPath: "a", id: 2, overview: "", posterPath: "https://image.tmdb.org/t/p/w500/sRLC052ieEzkQs9dEtPMfFxYkej.jpg", releaseDate: "", title: "movie title 1", voteAverage: 12, voteCount: 1)
     
-    return MovieDetailsView(movie: movie)
+    return CinemaMovieDetailsView(movie: movie)
 }

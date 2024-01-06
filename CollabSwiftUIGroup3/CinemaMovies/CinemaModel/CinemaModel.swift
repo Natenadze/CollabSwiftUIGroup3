@@ -8,11 +8,11 @@
 import Foundation
 
 struct CinemaModel: Decodable {
-    let results: [Movies]
+    let results: [CinemaMovies]
 }
 
 // MARK: - Result
-struct Movies: Decodable, Identifiable, Hashable {
+struct CinemaMovies: Decodable, Identifiable, Hashable {
     let backdropPath: String
     let id: Int
     let overview: String
