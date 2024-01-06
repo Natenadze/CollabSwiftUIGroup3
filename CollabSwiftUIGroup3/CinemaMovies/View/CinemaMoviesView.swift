@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CinemaMoviesView: View {
     
+    // MARK: - Properties
     @StateObject private var viewModel = CinemaMoviesViewModel()
-    
     
     let gridItems: [GridItem] = [
         GridItem(.adaptive(minimum: 150, maximum: 250), spacing: 20)
@@ -19,7 +19,7 @@ struct CinemaMoviesView: View {
     // MARK: - Body
     var body: some View {
         if viewModel.allCinemaMovies.count == 0 {
-            Text("wait")
+            ProgressView()
         }else {
             NavigationStack {
                 ZStack {

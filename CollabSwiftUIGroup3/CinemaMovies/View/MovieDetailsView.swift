@@ -34,7 +34,7 @@ struct MovieDetailsView: View {
 
 // MARK: - Preview
 #Preview {
-    let movie = Movies(adult: false, backdropPath: "a", id: 2, overview: "", posterPath: "https://image.tmdb.org/t/p/w500/sRLC052ieEzkQs9dEtPMfFxYkej.jpg", releaseDate: "", title: "movie title 1", video: false, voteAverage: 12, voteCount: 1)
+    let movie = Movies(backdropPath: "a", id: 2, overview: "", posterPath: "https://image.tmdb.org/t/p/w500/sRLC052ieEzkQs9dEtPMfFxYkej.jpg", releaseDate: "", title: "movie title 1", voteAverage: 12, voteCount: 1)
     
     return MovieDetailsView(movie: movie)
 }
