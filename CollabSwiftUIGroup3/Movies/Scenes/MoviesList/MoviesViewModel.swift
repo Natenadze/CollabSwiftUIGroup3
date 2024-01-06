@@ -12,7 +12,7 @@ final class MoviesViewModel: ObservableObject {
     // MARK: - Properties
     @Published private(set) var allMovies = [Movie]()
     
-    private let key = "2c4048c6f599fb101b867ea41bf01c69"
+    private let key = "put api key here"
     
     // MARK: - Init
     init() {

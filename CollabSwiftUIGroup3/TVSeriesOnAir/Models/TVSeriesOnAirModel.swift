@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TVSeriesOnAirResponse: Codable {
+struct TVSeriesOnAirResponse: Decodable {
     let results: [TVSeriesOnAir]
 }
 
-struct TVSeriesOnAir: Codable, Hashable {
+struct TVSeriesOnAir: Decodable, Hashable {
     let id: Int
     let overview: String
     let posterPath, firstAirDate, name: String

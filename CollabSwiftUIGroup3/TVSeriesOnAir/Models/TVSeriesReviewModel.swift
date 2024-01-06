@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ReviewsResponse: Codable {
+struct ReviewsResponse: Decodable {
     let id: Int
     let results: [Review]
 }
 
-struct Review: Codable {
+struct Review: Decodable {
     let author: String
     let authorDetails: AuthorDetails
     let content: String
@@ -26,7 +26,7 @@ struct Review: Codable {
     }
 }
 
-struct AuthorDetails: Codable {
+struct AuthorDetails: Decodable {
     let name, username: String
     let avatarPath: String?
     let rating: Int

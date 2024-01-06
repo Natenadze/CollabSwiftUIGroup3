@@ -12,7 +12,7 @@ final class TVSeriesOnAirViewModel: ObservableObject {
     // MARK: - Properties
     @Published private(set) var allTVSeriesOnAir = [TVSeriesOnAir]()
     
-    private let key = "2c4048c6f599fb101b867ea41bf01c69"
+    private let key = "put api key here"
     
     // MARK: - Init
     init() {
