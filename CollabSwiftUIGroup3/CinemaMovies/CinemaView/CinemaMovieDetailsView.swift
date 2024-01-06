@@ -12,7 +12,6 @@ struct CinemaMovieDetailsView: View {
     // MARK: - Properties
     let movie: CinemaMovies
     
-    
     // MARK: - Body
     var body: some View {
         AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500" + movie.posterPath)) { image in
