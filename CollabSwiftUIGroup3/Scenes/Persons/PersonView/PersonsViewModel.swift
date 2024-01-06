@@ -12,7 +12,7 @@ class PersonsViewModel: ObservableObject {
     
     //MARK: - Properties
     @Published var allPersons = [Person]()
-    private let url = "https://api.themoviedb.org/3/person/popular?api_key=2c4048c6f599fb101b867ea41bf01c69"
+    private let url = ""
     let baseUrl = "https://image.tmdb.org/t/p/w500"
     
     //MARK: - Init

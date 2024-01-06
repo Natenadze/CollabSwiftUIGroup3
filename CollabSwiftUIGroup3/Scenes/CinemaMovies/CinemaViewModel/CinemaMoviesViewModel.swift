@@ -13,7 +13,7 @@ final class CinemaMoviesViewModel: ObservableObject {
     // MARK: - Properties
     @Published var allCinemaMovies = [CinemaMovies]()
     let imageUrlBase = "https://image.tmdb.org/t/p/w500"
-    let apiKey = "2c4048c6f599fb101b867ea41bf01c69"
+    let apiKey = ""
     
     
     // MARK: - Init

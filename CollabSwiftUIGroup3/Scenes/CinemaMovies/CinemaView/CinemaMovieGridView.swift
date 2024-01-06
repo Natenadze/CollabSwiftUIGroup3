@@ -22,7 +22,7 @@ struct CinemaMovieGridView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500" + movie.posterPath), content: { image in
+            AsyncImage(url: URL(string: ApiManager.imageBaseUrl + movie.posterPath), content: { image in
                 image
                     .resizable()
                     .scaledToFit()
