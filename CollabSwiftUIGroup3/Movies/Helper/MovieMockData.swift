@@ -16,7 +16,8 @@ struct MovieMockData {
         posterPath: "placeholder",
         releaseDate: "12-09",
         title: "Test Title",
-        voteAverage: 9.5)
+        voteAverage: 9.5,
+        voteCount: 2)
 }
 
 

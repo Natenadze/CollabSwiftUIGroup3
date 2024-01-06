@@ -33,6 +33,7 @@ struct CinemaMoviesView: View {
                                 }
                             }
                         }
+                        .navigationTitle("Now in Cinemas")
                         .navigationDestination(for: CinemaMovies.self) { movie in
                             CinemaMovieDetailsView(movie: movie)
                         }
