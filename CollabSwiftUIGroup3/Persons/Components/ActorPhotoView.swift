@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ActorPhotoView: View {
     //MARK: - Properties
+    
     var baseUrl: String
     var person: Person
     //MARK: - Body
+    
     var body: some View {
         AsyncImage(url: URL(string: baseUrl + (person.profilePath))) { image in
             image.resizable()

@@ -9,9 +9,12 @@ import SwiftUI
 
 struct KnownForScrollView: View {
     //MARK: - Properties
+    
     var person: Person
     var baseUrl: String
+    
     //MARK: - Body
+    
     var body: some View {
         
         ForEach(person.knownFor, id: \.title) { movie in

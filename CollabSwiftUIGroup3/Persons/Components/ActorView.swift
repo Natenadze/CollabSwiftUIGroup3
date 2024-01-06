@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ActorView: View {
     //MARK: - Properties
+    
     var person: Person
+    
     //MARK: - Body
+    
     var body: some View {
         VStack {
             Text(person.name)

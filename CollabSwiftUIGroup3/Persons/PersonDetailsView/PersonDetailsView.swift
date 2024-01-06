@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct PersonDetailsView: View {
+    
     //MARK: - ViewModel
+    
     var viewModel: PersonDetailsViewModel
+    
     //MARK: - Body
+    
     var body: some View {
         VStack {
             ActorPhotoView(baseUrl: viewModel.baseUrl, person: viewModel.person)

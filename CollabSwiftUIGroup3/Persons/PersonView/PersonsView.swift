@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct PersonsView: View {
+    
     //MARK: - ViewModel & Grid Setup
+    
     @ObservedObject private var viewModel = PersonsViewModel()
     private let columns = [GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 10)]
+    
     //MARK: - Body
+    
     var body: some View {
         NavigationStack {
             ScrollView {
