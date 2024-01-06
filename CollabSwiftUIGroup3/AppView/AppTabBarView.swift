@@ -16,7 +16,7 @@ struct AppTabBarView: View {
             PersonsView()
                 .tabItem { Label("Persons", systemImage: "person.2.fill") }
             
-            Color.yellow
+            TVSeriesView()
                 .tabItem { Label("TV Series", systemImage: "play.tv.fill") }
             
             CinemaMoviesView()
