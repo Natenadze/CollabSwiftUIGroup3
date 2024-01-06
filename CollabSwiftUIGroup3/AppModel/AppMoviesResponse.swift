@@ -1,17 +1,17 @@
 //
-//  MovieModel.swift
+//  AppModel.swift
 //  CollabSwiftUIGroup3
 //
-//  Created by Ani's Mac on 05.01.24.
+//  Created by Davit Natenadze on 06.01.24.
 //
 
 import Foundation
 
-struct MoviesResponse: Decodable {
+struct AppMoviesResponse: Decodable {
     let results: [Movie]
 }
 
-struct Movie: Decodable, Identifiable, Hashable {
+struct AppMovie: Decodable, Identifiable, Hashable {
     let id: Int
     let overview: String
     let posterPath, releaseDate, title: String
@@ -28,4 +28,3 @@ struct Movie: Decodable, Identifiable, Hashable {
         case voteCount = "vote_count"
     }
 }
-

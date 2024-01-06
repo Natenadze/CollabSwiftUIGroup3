@@ -17,7 +17,7 @@ struct MoviesView: View {
     // MARK: - Body
     var body: some View {
         NavigationStack(path: $path) {
-            List(viewModel.allMovies, id: \.id) { movie in
+            List(viewModel.allMovies) { movie in
                 NavigationLink(value: movie) {
                     rowContentView(movie: movie)
                 }
