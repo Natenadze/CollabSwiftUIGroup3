@@ -17,11 +17,6 @@
 		5D7930FA2B47F2C900A1335E /* TVSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7930F92B47F2C900A1335E /* TVSeriesView.swift */; };
 		5D7930FC2B47F2DF00A1335E /* CinemaMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7930FB2B47F2DF00A1335E /* CinemaMoviesView.swift */; };
 		5D7930FE2B47F2ED00A1335E /* TVSeriesOnAirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7930FD2B47F2ED00A1335E /* TVSeriesOnAirView.swift */; };
-		5D7931102B48534D00A1335E /* CinemaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79310F2B48534D00A1335E /* CinemaModel.swift */; };
-		5D7931122B48536C00A1335E /* CinemaMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931112B48536C00A1335E /* CinemaMoviesViewModel.swift */; };
-		5D7931152B4853BC00A1335E /* CinemaMovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931142B4853BC00A1335E /* CinemaMovieDetailsView.swift */; };
-		5D7931172B4853D700A1335E /* RatingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931162B4853D700A1335E /* RatingBarView.swift */; };
-		5D7931192B486F2100A1335E /* CinemaMovieGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7931182B486F2100A1335E /* CinemaMovieGridView.swift */; };
 		EE14C1302B47F49C00943C09 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14C12F2B47F49C00943C09 /* MoviesViewModel.swift */; };
 		EE14C1322B47F4A600943C09 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14C1312B47F4A600943C09 /* MovieModel.swift */; };
 		EE4D52A62B481AE900B7BE2B /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D52A52B481AE900B7BE2B /* MovieDetailsView.swift */; };
@@ -49,11 +44,6 @@
 		5D7930F92B47F2C900A1335E /* TVSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesView.swift; sourceTree = "<group>"; };
 		5D7930FB2B47F2DF00A1335E /* CinemaMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMoviesView.swift; sourceTree = "<group>"; };
 		5D7930FD2B47F2ED00A1335E /* TVSeriesOnAirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesOnAirView.swift; sourceTree = "<group>"; };
-		5D79310F2B48534D00A1335E /* CinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaModel.swift; sourceTree = "<group>"; };
-		5D7931112B48536C00A1335E /* CinemaMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMoviesViewModel.swift; sourceTree = "<group>"; };
-		5D7931142B4853BC00A1335E /* CinemaMovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMovieDetailsView.swift; sourceTree = "<group>"; };
-		5D7931162B4853D700A1335E /* RatingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBarView.swift; sourceTree = "<group>"; };
-		5D7931182B486F2100A1335E /* CinemaMovieGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMovieGridView.swift; sourceTree = "<group>"; };
 		EE14C12F2B47F49C00943C09 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		EE14C1312B47F4A600943C09 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		EE4D52A52B481AE900B7BE2B /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
@@ -160,9 +150,7 @@
 		5D7930EC2B47E22E00A1335E /* CinemaMovies */ = {
 			isa = PBXGroup;
 			children = (
-				5D79310D2B48532F00A1335E /* CinemaModel */,
-				5D79310E2B48533500A1335E /* CinemaViewModel */,
-				5D7931132B48539300A1335E /* CinemaView */,
+				5D7930FB2B47F2DF00A1335E /* CinemaMoviesView.swift */,
 			);
 			path = CinemaMovies;
 			sourceTree = "<group>";
@@ -177,31 +165,6 @@
 			path = TVSeriesOnAir;
 			sourceTree = "<group>";
 		};
-		5D79310D2B48532F00A1335E /* CinemaModel */ = {
-			isa = PBXGroup;
-			children = (
-				5D79310F2B48534D00A1335E /* CinemaModel.swift */,
-			);
-			path = CinemaModel;
-			sourceTree = "<group>";
-		};
-		5D79310E2B48533500A1335E /* CinemaViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				5D7931112B48536C00A1335E /* CinemaMoviesViewModel.swift */,
-			);
-			path = CinemaViewModel;
-			sourceTree = "<group>";
-		};
-		5D7931132B48539300A1335E /* CinemaView */ = {
-			isa = PBXGroup;
-			children = (
-				5D7930FB2B47F2DF00A1335E /* CinemaMoviesView.swift */,
-				5D7931142B4853BC00A1335E /* CinemaMovieDetailsView.swift */,
-				5D7931162B4853D700A1335E /* RatingBarView.swift */,
-				5D7931182B486F2100A1335E /* CinemaMovieGridView.swift */,
-			);
-			path = CinemaView;
 		EE4D52B32B483A9400B7BE2B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,9 +343,7 @@
 				EE14C1322B47F4A600943C09 /* MovieModel.swift in Sources */,
 				5D7930DD2B47E16000A1335E /* ContentView.swift in Sources */,
 				5D7930F82B47F2B700A1335E /* PersonsView.swift in Sources */,
-				5D7931102B48534D00A1335E /* CinemaModel.swift in Sources */,
 				5D7930FC2B47F2DF00A1335E /* CinemaMoviesView.swift in Sources */,
-				5D7931152B4853BC00A1335E /* CinemaMovieDetailsView.swift in Sources */,
 				EE4D52B22B482BB800B7BE2B /* VoteAverageView.swift in Sources */,
 				EE4D52A62B481AE900B7BE2B /* MovieDetailsView.swift in Sources */,
 				EE4D52BC2B48747B00B7BE2B /* TVSeriesOnAirModel.swift in Sources */,
@@ -392,11 +353,7 @@
 				EE4D52C42B48A74A00B7BE2B /* TVSeriesReviewModel.swift in Sources */,
 				5D7930FE2B47F2ED00A1335E /* TVSeriesOnAirView.swift in Sources */,
 				5D7930F62B47F2AA00A1335E /* MoviesView.swift in Sources */,
-				5D7931172B4853D700A1335E /* RatingBarView.swift in Sources */,
 				5D7930DB2B47E16000A1335E /* CollabSwiftUIGroup3App.swift in Sources */,
-				5D7931122B48536C00A1335E /* CinemaMoviesViewModel.swift in Sources */,
-				5D7930FA2B47F2C900A1335E /* TVSeriesView.swift in Sources */,
-				5D7931192B486F2100A1335E /* CinemaMovieGridView.swift in Sources */,
 				EE4D52B02B482B1200B7BE2B /* RatingStarView.swift in Sources */,
 				EE4D52C02B488A6900B7BE2B /* TVSeriesReviewsViewModel.swift in Sources */,
 				EE4D52C22B488B4F00B7BE2B /* TVSeriesReviewsView.swift in Sources */,
