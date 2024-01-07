@@ -11,12 +11,11 @@ import SwiftUI
 struct CinemaMovieReviewsView: View {
     // MARK: - Properties
     @StateObject var viewModel: CinemaMovieReviewViewModel
-//    @EnvironmentObject var viewModel: CinemaMovieReviewViewModel
     
     // MARK: - Body
     var body: some View {
         if viewModel.allCinemaMovies.isEmpty {
-            noReviewsView
+            AppEmptyReviewsView()
         } else {
             cinemaMoviesReviewList
         }
@@ -27,13 +26,7 @@ struct CinemaMovieReviewsView: View {
 // MARK: - Extensions
 extension CinemaMovieReviewsView {
     
-    var noReviewsView: some View {
-        Text("No reviews available ☹️".capitalized)
-            .font(.title)
-            .foregroundColor(.gray)
-    }
-    
-    var cinemaMoviesReviewList: some View {
+    private var cinemaMoviesReviewList: some View {
         ScrollView {
             ForEach(viewModel.allCinemaMovies, id: \.author) { review in
                 VStack(alignment: .leading, spacing: 10) {

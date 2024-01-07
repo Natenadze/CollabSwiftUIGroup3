@@ -13,20 +13,24 @@ struct TVSeriesReviewsView: View {
     
     // MARK: - Body
     var body: some View {
+        
+        if viewModel.allReviews.isEmpty {
+            AppEmptyReviewsView()
+        }else {
+            reviewsScrollView
+        }
+        
+    }
+}
+
+// MARK: - Extensions
+extension TVSeriesReviewsView {
+    
+    private var reviewsScrollView: some View {
         ScrollView {
-            VStack(spacing: 32) {
-                
-                if !viewModel.allReviews.isEmpty {
-                    ForEach(viewModel.allReviews, id: \.author) { review in
-                        AppReviewsView(review: review)
-                    }
-                } else {
-                    Text("No reviews available ☹️".capitalized)
-                        .font(.title)
-                        .foregroundColor(.gray)
-                }
+            ForEach(viewModel.allReviews, id: \.author) { review in
+                AppReviewsView(review: review)
             }
-            .padding(16)
         }
         .navigationTitle(viewModel.series.name)
         .navigationBarTitleDisplayMode(.inline)
