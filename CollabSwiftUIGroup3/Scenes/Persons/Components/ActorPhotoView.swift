@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ActorPhotoView: View {
+    
     //MARK: - Properties
+    var person: AppPerson
     
-    var baseUrl: String
-    var person: Person
     //MARK: - Body
-    
     var body: some View {
-        AsyncImage(url: URL(string: baseUrl + (person.profilePath))) { image in
+        AsyncImage(url: URL(string: ApiManager.imageBaseUrl + (person.profilePath ?? ""))) { image in
             image.resizable()
                 .scaledToFit()
                 .cornerRadius(8.0)

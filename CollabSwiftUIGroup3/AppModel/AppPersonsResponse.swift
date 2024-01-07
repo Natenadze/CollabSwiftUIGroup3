@@ -15,8 +15,8 @@ struct AppPerson: Decodable, Identifiable {
     let id: Int
     let name: String
     let originalName: String
-    let profilePath: String
-    let knownFor: [AppWork]
+    let profilePath: String?
+    let knownFor: [AppWork]?
     
     enum CodingKeys: String, CodingKey {
         case id

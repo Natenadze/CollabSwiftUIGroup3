@@ -10,7 +10,7 @@ import Foundation
 
 struct ApiManager {
     
-    static let apiKey = ""
+    static let apiKey = "2c4048c6f599fb101b867ea41bf01c69"
     static let imageBaseUrl = "https://image.tmdb.org/t/p/w500"
     
     static let moviesBaseUrl = "https://api.themoviedb.org/3/movie/popular?api_key="
