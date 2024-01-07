@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ActorPhotoView: View {
-    
     //MARK: - Properties
     var person: AppPerson
     
@@ -20,7 +19,7 @@ struct ActorPhotoView: View {
                 .cornerRadius(8.0)
         } placeholder: {
             ProgressView()
-                .frame(width: 120, height: 180)
+                .frame(width: 120, height: 250)
                 .foregroundStyle(.white)
         }    }
 }

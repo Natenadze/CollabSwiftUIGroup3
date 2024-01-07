@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PersonDetailsView: View {
-    
     //MARK: - ViewModel
     var viewModel: PersonDetailsViewModel
 
@@ -16,8 +15,7 @@ struct PersonDetailsView: View {
     var body: some View {
         VStack {
             ActorPhotoView(person: viewModel.person)
-            Text("Known For:")
-                .font(.title)
+            textKnownFor
             ScrollView(.horizontal) {
                 HStack {
                     KnownForScrollView(person: viewModel.person)
@@ -26,5 +24,12 @@ struct PersonDetailsView: View {
             .navigationTitle(viewModel.person.name)
             .preferredColorScheme(.dark)
         }
+    }
+}
+
+extension PersonDetailsView {
+    var textKnownFor: some View {
+        Text("Known For:")
+            .font(.title)
     }
 }
