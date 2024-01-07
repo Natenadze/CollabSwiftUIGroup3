@@ -11,10 +11,7 @@ import NatenWorking
 final class CinemaMoviesViewModel: ObservableObject {
     
     // MARK: - Properties
-    @Published var allCinemaMovies = [CinemaMovies]()
-    let imageUrlBase = "https://image.tmdb.org/t/p/w500"
-    let apiKey = ""
-    
+    @Published var allCinemaMovies = [AppMovie]()
     
     // MARK: - Init
     init() {
@@ -23,10 +20,10 @@ final class CinemaMoviesViewModel: ObservableObject {
     
     // MARK: - Methods
     private func fetchMovieCinemas() {
-        let url = "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)"
+        let url = ApiManager.cinemaBaseUrl + ApiManager.apiKey
         
         Task {
-            if let result: CinemaModel = try? await NetworkManager().performURLRequest(url) {
+            if let result: AppMoviesResponse = try? await NetworkManager().performURLRequest(url) {
                 await MainActor.run {
                     allCinemaMovies = result.results
                 }
