@@ -1,46 +1,44 @@
 //
-//  CinemaMovieReviewView.swift
+//  AppMovieReviewView.swift
 //  CollabSwiftUIGroup3
 //
 //  Created by Davit Natenadze on 07.01.24.
 //
 
-
 import SwiftUI
 
-struct CinemaMovieReviewsView: View {
+struct AppMovieReviewView: View {
     // MARK: - Properties
     @StateObject var viewModel: CinemaMovieReviewViewModel
-//    @EnvironmentObject var viewModel: CinemaMovieReviewViewModel
     
     // MARK: - Body
     var body: some View {
         if viewModel.allCinemaMovies.isEmpty {
-            noReviewsView
+            Text("No reviews available ☹️".capitalized)
+                .font(.title)
+                .foregroundColor(.gray)
         } else {
-            cinemaMoviesReviewList
+            reviewViewsList
         }
     }
 }
 
-
 // MARK: - Extensions
-extension CinemaMovieReviewsView {
+private extension AppMovieReviewView {
     
-    var noReviewsView: some View {
-        Text("No reviews available ☹️".capitalized)
-            .font(.title)
-            .foregroundColor(.gray)
-    }
-    
-    var cinemaMoviesReviewList: some View {
+    var reviewViewsList: some View {
         ScrollView {
             ForEach(viewModel.allCinemaMovies, id: \.author) { review in
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
-                        Image(systemName: "person")
+                        Image(systemName: "person.fill")
                             .resizable()
                             .frame(width: 20, height: 20)
+                            .padding(8)
+                            .background(
+                                Color.gray.opacity(0.3)
+                            )
+                            .clipShape(Circle())
                         
                         Text(review.author)
                             .font(.headline)
@@ -53,17 +51,21 @@ extension CinemaMovieReviewsView {
                             .font(.subheadline)
                     }
                     
-                    AppExpandableText(text: review.content, lineLimit: 10)
+                    AppExpandableText(text: review.content, lineLimit: 7)
                         .padding()
                 }
+                .padding(16)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.gray.opacity(0.2))
+                )
             }
         }
     }
 }
 
 
-
 // MARK: - Preview
 #Preview {
-    CinemaMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: 572802))
+    AppMovieReviewView(viewModel: CinemaMovieReviewViewModel(movieID: 572802))
 }

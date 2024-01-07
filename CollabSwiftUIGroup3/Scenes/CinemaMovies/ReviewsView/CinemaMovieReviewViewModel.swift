@@ -15,7 +15,7 @@ final class CinemaMovieReviewViewModel: ObservableObject {
     let movieID: String
     
     // MARK: - Init
-    init(movieID: Int) {
+    init(movieID: Int = 0) {
         self.movieID = String(movieID)
         fetchMovieCinemas()
     }

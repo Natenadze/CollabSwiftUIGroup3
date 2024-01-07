@@ -27,6 +27,8 @@ struct CinemaMovieGridView: View {
                 .lineLimit(2)
             
             AppCinemaRatingBarView(selected: movie.voteAverage)
+            
+            Spacer()
         }
     }
 }

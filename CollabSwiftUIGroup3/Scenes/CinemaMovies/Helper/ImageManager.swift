@@ -11,6 +11,7 @@ struct ImageManager: View {
     // MARK: - Properties
     let imageUrl: String
     
+    
     // MARK: - Body
     var body: some View {
         AsyncImage(url: URL(string: imageUrl), content: { image in
