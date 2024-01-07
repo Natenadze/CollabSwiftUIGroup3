@@ -7,28 +7,21 @@
 
 import SwiftUI
 
-struct AppMovieReviewView: View {
+struct AppMovieReviewsView: View {
     // MARK: - Properties
-    @StateObject var viewModel: CinemaMovieReviewViewModel
+    var review: AppReview
     
     // MARK: - Body
     var body: some View {
-        if viewModel.allCinemaMovies.isEmpty {
-            Text("No reviews available ☹️".capitalized)
-                .font(.title)
-                .foregroundColor(.gray)
-        } else {
             reviewViewsList
-        }
     }
 }
 
 // MARK: - Extensions
-private extension AppMovieReviewView {
+private extension AppMovieReviewsView {
     
     var reviewViewsList: some View {
-        ScrollView {
-            ForEach(viewModel.allCinemaMovies, id: \.author) { review in
+            
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "person.fill")
@@ -59,13 +52,11 @@ private extension AppMovieReviewView {
                     RoundedRectangle(cornerRadius: 16)
                         .fill(Color.gray.opacity(0.2))
                 )
-            }
-        }
     }
 }
 
 
-// MARK: - Preview
-#Preview {
-    AppMovieReviewView(viewModel: CinemaMovieReviewViewModel(movieID: 572802))
-}
+//// MARK: - Preview
+//#Preview {
+//    AppMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: 572802))
+//}

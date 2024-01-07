@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TVSeriesReviewsView: View {
     // MARK: - Properties
-    @ObservedObject var viewModel: TVSeriesReviewsViewModel
+    @StateObject var viewModel: TVSeriesReviewsViewModel
     
     // MARK: - Body
     var body: some View {
@@ -29,13 +29,10 @@ extension TVSeriesReviewsView {
     private var reviewsScrollView: some View {
         ScrollView {
             ForEach(viewModel.allReviews, id: \.author) { review in
-                AppReviewsView(review: review)
+                AppMovieReviewsView(review: review)
             }
         }
         .navigationTitle(viewModel.series.name)
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            viewModel.fetchReviews()
-        }
     }
 }
