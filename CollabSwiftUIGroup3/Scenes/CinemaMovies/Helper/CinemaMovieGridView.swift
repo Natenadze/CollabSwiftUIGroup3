@@ -8,35 +8,25 @@
 import SwiftUI
 
 struct CinemaMovieGridView: View {
-    
     // MARK: - Properties
-    
-    let movie: CinemaMovies
+    private let movie: AppMovie
     
     // MARK: - Init
-    init(movie: CinemaMovies) {
+    init(movie: AppMovie) {
         self.movie = movie
     }
     
     // MARK: - Body
     var body: some View {
-        
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: ApiManager.imageBaseUrl + movie.posterPath), content: { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            }) {
-                ProgressView()
-            }
-            .frame(width: 150, height: 200)
-            
+            ImageManager(imageUrl: ApiManager.imageBaseUrl + movie.posterPath)
             
             Text(movie.title)
                 .frame(alignment: .leading)
                 .foregroundStyle(.white)
                 .lineLimit(2)
-            CinemaRatingBarView(selected: movie.voteAverage)
+            
+            AppCinemaRatingBarView(selected: movie.voteAverage)
         }
     }
 }

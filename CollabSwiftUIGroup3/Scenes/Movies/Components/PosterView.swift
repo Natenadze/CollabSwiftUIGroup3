@@ -17,17 +17,10 @@ struct PosterView: View {
     
     // MARK: - Body
     var body: some View {
-        AsyncImage(url: URL(string: (ApiManager.imageBaseUrl) + (movie.posterPath))) { phase in
-            switch phase {
-            case .success(let image):
-                posterImageView(image: image)
-            case .empty:
-                emptyStateView()
-            case .failure(_):
-                emptyStateView()
-            @unknown default:
-                EmptyView()
-            }
+        AsyncImage(url: URL(string: ApiManager.imageBaseUrl + movie.posterPath)) { image in
+            posterImageView(image: image)
+        } placeholder: {
+            emptyStateView()
         }
     }
     

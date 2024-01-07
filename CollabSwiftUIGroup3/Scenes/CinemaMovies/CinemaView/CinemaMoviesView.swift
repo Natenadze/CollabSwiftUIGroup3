@@ -34,8 +34,8 @@ struct CinemaMoviesView: View {
                             }
                         }
                         .navigationTitle("Now in Cinemas")
-                        .navigationDestination(for: CinemaMovies.self) { movie in
-                            CinemaMovieDetailsView(movie: movie)
+                        .navigationDestination(for: AppMovie.self) { movie in
+                            CinemaMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: movie.id))
                         }
                     }
                 }
