@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ActorView: View {
-    
     //MARK: - Properties
     var person: AppPerson
     

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PersonsView: View {
-    
     //MARK: - ViewModel & Grid Setup
     @StateObject private var viewModel = PersonsViewModel()
     private let columns = [GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 10)]
@@ -28,7 +27,7 @@ struct PersonsView: View {
                     }
                 })
                 .padding()
-                .background(.black)
+                .background(Color.appBackgroundColor)
                 .preferredColorScheme(.dark)
                 .navigationTitle("Popular Actors")
             }
@@ -36,6 +35,5 @@ struct PersonsView: View {
     }
 }
 
-#Preview {
-    PersonsView()
-}
+
+
