@@ -21,20 +21,10 @@ struct AppMovieReviewsView: View {
 private extension AppMovieReviewsView {
     
     var reviewViewsList: some View {
-            
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding(8)
-                            .background(
-                                Color.gray.opacity(0.3)
-                            )
-                            .clipShape(Circle())
-                        
-                        Text(review.author)
-                            .font(.headline)
+                        reviewAuthorImage
+                        authorName
                     }
                     
                     HStack {
@@ -44,7 +34,7 @@ private extension AppMovieReviewsView {
                             .font(.subheadline)
                     }
                     
-                    AppExpandableText(text: review.content, lineLimit: 7)
+                    AppExpandableText(text: review.content, lineLimit: 6)
                         .padding()
                 }
                 .padding(16)
@@ -53,10 +43,22 @@ private extension AppMovieReviewsView {
                         .fill(Color.gray.opacity(0.2))
                 )
     }
+    
+    var reviewAuthorImage: some View {
+        Image(systemName: "person.fill")
+            .resizable()
+            .frame(width: 20, height: 20)
+            .padding(8)
+            .background(
+                Color.gray.opacity(0.3)
+            )
+            .clipShape(Circle())
+    }
+    
+    var authorName: some View {
+        Text(review.author)
+            .font(.headline)
+    }
 }
 
 
-//// MARK: - Preview
-//#Preview {
-//    AppMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: 572802))
-//}

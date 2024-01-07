@@ -8,7 +8,6 @@
 import Foundation
 
 struct AppReviewsResponse: Decodable {
-    let id: Int
     let results: [AppReview]
 }
 
