@@ -9,7 +9,6 @@ import Foundation
 import NatenWorking
 
 final class TVSeriesViewModel: ObservableObject {
-    
     // MARK: - Properties
     @Published var seriesCollection: [AppTVSeriesOnAir] = []
     private let url = ApiManager.tvSeriesBaseUrl + ApiManager.apiKey

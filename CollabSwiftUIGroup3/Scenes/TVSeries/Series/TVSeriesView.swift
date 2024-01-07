@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TVSeriesView: View {
-    
     //MARK: - Properties
     @StateObject var viewModel = TVSeriesViewModel()
     private let gridItems: [GridItem] = [GridItem(.adaptive(minimum: 150, maximum: 250))]
@@ -16,17 +15,26 @@ struct TVSeriesView: View {
     //MARK: - Body
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: gridItems, spacing: 12) {
-                    ForEach(viewModel.seriesCollection) { show in
-                        NavigationLink(destination: TVSeriesDetailsPage(series: show)) {
-                            AppGridView(series: show)
-                        }
-                    }
+            seriesCollectionView()
+        }
+    }
+    
+    //MARK: - Content
+    private func seriesCollectionView() -> some View {
+        ScrollView {
+            seriesGridView()
+        }
+        .navigationTitle("TV Shows")
+        .preferredColorScheme(.dark)
+        .background(Color.appBackgroundColor)
+    }
+    
+    private func seriesGridView() -> some View {
+        LazyVGrid(columns: gridItems, spacing: 12) {
+            ForEach(viewModel.seriesCollection) { show in
+                NavigationLink(destination: TVSeriesDetailsPage(series: show)) {
+                    AppGridView(series: show)
                 }
-                .navigationTitle("TV Shows")
-                .preferredColorScheme(.dark)
-                .background(Color.appBackgroundColor)
             }
         }
     }
