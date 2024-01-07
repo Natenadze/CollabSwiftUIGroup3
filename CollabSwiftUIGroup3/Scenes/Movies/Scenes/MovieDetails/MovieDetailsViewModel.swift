@@ -9,9 +9,7 @@ import SwiftUI
 
 final class MovieDetailsViewModel: ObservableObject {
     // MARK: - Properties
-    @Binding var path: NavigationPath
-    
-    var movie: Movie
+    var movie: AppMovie
     
     var posterPath: String {
         movie.posterPath
@@ -34,8 +32,7 @@ final class MovieDetailsViewModel: ObservableObject {
     }
     
     // MARK: - Init
-    init(movie: Movie, path: Binding<NavigationPath>) {
+    init(movie: AppMovie) {
         self.movie = movie
-        self._path = path
     }
 }

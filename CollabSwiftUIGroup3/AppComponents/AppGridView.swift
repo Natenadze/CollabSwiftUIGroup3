@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppGridView {
+struct AppGridView: View {
     // MARK: - Properties
     let series: AppTVSeriesOnAir
     
@@ -33,15 +33,18 @@ struct AppGridView {
     
     // MARK: - Content
     private func seriesImage(series: AppTVSeriesOnAir) -> some View {
-        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(series.posterPath)")) { image in
+        AsyncImage(url: URL(string: (ApiManager.imageBaseUrl) + (series.posterPath))) { image in
             image.resizable()
                 .scaledToFill()
         } placeholder: {
             Image(systemName: "photo.fill")
+                .resizable()
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .foregroundStyle(.gray)
         }
     }
     
- 
     private func seriesRating(series: AppTVSeriesOnAir) -> some View {
         Text("\(series.voteAverage, specifier: "%.1f")")
             .font(.system(size: 16))

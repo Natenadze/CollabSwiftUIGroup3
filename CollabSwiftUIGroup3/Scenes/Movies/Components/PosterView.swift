@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PosterView: View {
     // MARK: - Properties
-    let movie: Movie
+    let movie: AppMovie
     let posterPath: String
     let frameWidth: CGFloat
     let frameHeight: CGFloat
@@ -17,7 +17,7 @@ struct PosterView: View {
     
     // MARK: - Body
     var body: some View {
-        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { phase in
+        AsyncImage(url: URL(string: (ApiManager.imageBaseUrl) + (movie.posterPath))) { phase in
             switch phase {
             case .success(let image):
                 posterImageView(image: image)

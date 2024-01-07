@@ -10,9 +10,8 @@ import NatenWorking
 
 final class MoviesViewModel: ObservableObject {
     // MARK: - Properties
-    @Published private(set) var allMovies = [Movie]()
-    
-    private let key = ""
+    @Published private(set) var allMovies = [AppMovie]()
+    private let url = ApiManager.moviesBaseUrl + ApiManager.apiKey
     
     // MARK: - Init
     init() {
@@ -21,9 +20,8 @@ final class MoviesViewModel: ObservableObject {
     
     // MARK: - Methods
     private func fetchMovies() {
-        let url = "https://api.themoviedb.org/3/movie/popular?api_key=\(key)"
         Task {
-            if let movies: MoviesResponse = try await NetworkManager().performURLRequest(url) {
+            if let movies: AppMoviesResponse = try await NetworkManager().performURLRequest(url) {
                 await MainActor.run {
                     allMovies = movies.results
                 }

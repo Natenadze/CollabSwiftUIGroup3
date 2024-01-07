@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct MovieMockData {
-    @State var path = NavigationPath()
     
-    static let previewExample = Movie(
+    static let previewExample = AppMovie(
         id: 1,
         overview: "Test Description",
         posterPath: "placeholder",

@@ -8,7 +8,7 @@
 import Foundation
 
 struct AppMoviesResponse: Decodable {
-    let results: [Movie]
+    let results: [AppMovie]
 }
 
 struct AppMovie: Decodable, Identifiable, Hashable {

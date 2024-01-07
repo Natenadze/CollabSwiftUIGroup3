@@ -10,10 +10,8 @@ import SwiftUI
 struct MovieDetailsView: View {
     // MARK: - Properties
     @ObservedObject var viewModel: MovieDetailsViewModel
-    
-    private let backgroundColor = Color(red: 18/255, green: 18/255, blue: 18/255)
-    private let accentColor = Color(red: 229/255, green: 8/255, blue: 21/255)
-    
+    @Environment(\.dismiss) var dismiss
+
     // MARK: - Body
     var body: some View {
         GeometryReader { geometry in
@@ -62,9 +60,7 @@ struct MovieDetailsView: View {
     // MARK: - Return Button
     private func returnButton() -> some View {
         Button {
-            if !viewModel.path.isEmpty {
-                viewModel.path.removeLast(viewModel.path.count)
-            }
+            dismiss()
         } label: {
             Image(systemName: "chevron.left")
                 .foregroundStyle(.white)
@@ -75,7 +71,7 @@ struct MovieDetailsView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 54)
-        .background(accentColor)
+        .background(Color.appAccentColor)
         .cornerRadius(8)
         .padding(.horizontal, 16)
     }
@@ -83,7 +79,6 @@ struct MovieDetailsView: View {
 
 // MARK: - Preview
 #Preview {
-    MovieDetailsView(viewModel: MovieDetailsViewModel(movie: MovieMockData.previewExample,
-                                                      path: MovieMockData().$path))
+    MovieDetailsView(viewModel: MovieDetailsViewModel(movie: MovieMockData.previewExample))
 }
 
