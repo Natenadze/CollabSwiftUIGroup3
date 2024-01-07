@@ -19,7 +19,7 @@ struct TVSeriesOnAirView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(viewModel.allTVSeriesOnAir, id: \.id) { series in
+                    ForEach(viewModel.allTVSeriesOnAir) { series in
                         NavigationLink(value: series) {
                             AppGridView(series: series)
                         }
