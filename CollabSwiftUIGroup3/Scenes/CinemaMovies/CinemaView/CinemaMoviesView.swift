@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CinemaMoviesView: View {
-    
     // MARK: - Properties
     @StateObject private var viewModel = CinemaMoviesViewModel()
     
@@ -18,32 +17,40 @@ struct CinemaMoviesView: View {
     
     // MARK: - Body
     var body: some View {
-        if viewModel.allCinemaMovies.count == 0 {
+        if viewModel.allCinemaMovies.isEmpty {
             ProgressView()
         }else {
             NavigationStack {
                 ZStack {
-                    Color.black.ignoresSafeArea()
+                    Color.appBackgroundColor.ignoresSafeArea()
                     
-                    ScrollView {
-                        LazyVGrid(columns: gridItems, spacing: 16) {
-                            ForEach(viewModel.allCinemaMovies) { movie in
-                                NavigationLink(value: movie) {
-                                    CinemaMovieGridView(movie: movie)
-                                }
-                            }
-                        }
-                        .navigationTitle("Now in Cinemas")
-                        .navigationDestination(for: AppMovie.self) { movie in
-                            CinemaMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: movie.id))
-                        }
-                    }
+                    mainGridContent
                 }
             }
         }
     }
 }
 
+// MARK: - Extensions
+private extension CinemaMoviesView {
+    
+    var mainGridContent: some View {
+            ScrollView {
+                LazyVGrid(columns: gridItems, spacing: 16) {
+                    ForEach(viewModel.allCinemaMovies) { movie in
+                        NavigationLink(value: movie) {
+                            CinemaMovieGridView(movie: movie)
+                        }
+                    }
+                }
+                .navigationTitle("Now in Cinemas")
+                .navigationDestination(for: AppMovie.self) { movie in
+                    CinemaMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: movie.id))
+                }
+                
+        }
+    }
+}
 
 
 // MARK: - Preview

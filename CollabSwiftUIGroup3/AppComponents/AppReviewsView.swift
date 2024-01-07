@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AppReviewsView: View {
-    
     // MARK: - Properties
     let review: AppReview
     
