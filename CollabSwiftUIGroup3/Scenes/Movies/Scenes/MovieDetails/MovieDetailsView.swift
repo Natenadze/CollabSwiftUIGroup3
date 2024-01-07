@@ -11,50 +11,73 @@ struct MovieDetailsView: View {
     // MARK: - Properties
     @ObservedObject var viewModel: MovieDetailsViewModel
     @Environment(\.dismiss) var dismiss
-
+    
     // MARK: - Body
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        PosterView(movie: viewModel.movie,
-                                   posterPath: viewModel.posterPath,
-                                   frameWidth: geometry.size.width,
-                                   frameHeight: 600,
-                                   cornerRadius: nil)
-                        
-                        movieDescription()
-                    }
-                }
-                returnButton()
-                Spacer()
-            }
-            .ignoresSafeArea(.all, edges: .top)
-            .navigationBarBackButtonHidden(true)
-        }
+        detailsView()
     }
     
     // MARK: - Content
-    private func movieDescription() -> some View {
-        Group {
-            Text(viewModel.title)
-                .font(.system(size: 24, weight: .bold))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(.white)
-                .padding(.top, 16)
-            HStack {
-                RatingStarView(frameWidth: 24, frameHeight: 24)
-                VoteAverageView(movie: viewModel.movie, font: .system(size: 20))
+    private func detailsView() -> some View {
+        GeometryReader { geometry in
+            detailsViewContent(geometry: geometry)
+                .ignoresSafeArea(.all, edges: .top)
+                .navigationBarBackButtonHidden(true)
+        }
+    }
+    
+    private func detailsViewContent(geometry: GeometryProxy) -> some View {
+        VStack {
+            ScrollView {
+                moviePosterAndInfoStack(geometry: geometry)
             }
+            returnButton()
+            Spacer()
+        }
+    }
+    
+    private func moviePosterAndInfoStack(geometry: GeometryProxy) -> some View {
+        VStack(alignment: .leading) {
+            PosterView(movie: viewModel.movie,
+                       posterPath: viewModel.posterPath,
+                       frameWidth: geometry.size.width,
+                       frameHeight: 600,
+                       cornerRadius: nil)
             
-            Text(viewModel.overview)
-                .font(.system(size: 18, weight: .regular))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(.white.opacity(0.6))
+            movieInfoStack()
+        }
+    }
+    
+    private func movieInfoStack() -> some View {
+        Group {
+            movieTitle()
+            ratingView()
+            movieDescriptionView()
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 6)
+    }
+    
+    private func movieTitle() -> some View {
+        Text(viewModel.title)
+            .font(.system(size: 24, weight: .bold))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.white)
+            .padding(.top, 16)
+    }
+    
+    private func ratingView() -> some View {
+        HStack {
+            RatingStarView(frameWidth: 24, frameHeight: 24)
+            VoteAverageView(movie: viewModel.movie, font: .system(size: 20))
+        }
+    }
+    
+    private func movieDescriptionView() -> some View {
+        Text(viewModel.overview)
+            .font(.system(size: 18, weight: .regular))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.white.opacity(0.6))
     }
     
     // MARK: - Return Button

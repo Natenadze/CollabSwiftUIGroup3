@@ -14,24 +14,29 @@ struct MoviesView: View {
     // MARK: - Body
     var body: some View {
         NavigationStack {
-            List(viewModel.allMovies) { movie in
-                NavigationLink(value: movie) {
-                    rowContentView(movie: movie)
-                }
-                .listRowBackground(Color.appBackgroundColor)
-            }
-            .background(Color.appBackgroundColor)
-            .scrollContentBackground(.hidden)
-            .listStyle(GroupedListStyle())
-            .navigationTitle("Popular Movies")
-            .preferredColorScheme(.dark)
-            .navigationDestination(for: AppMovie.self) { movie in
-                MovieDetailsView(viewModel: MovieDetailsViewModel(movie: movie))
-            }
+            moviesListContent()
         }
     }
     
     // MARK: - Content
+    private func moviesListContent() -> some View {
+        List(viewModel.allMovies) { movie in
+            NavigationLink(value: movie) {
+                rowContentView(movie: movie)
+            }
+            .listRowBackground(Color.appBackgroundColor)
+        }
+        .background(Color.appBackgroundColor)
+        .preferredColorScheme(.dark)
+        .scrollContentBackground(.hidden)
+        .listStyle(GroupedListStyle())
+        
+        .navigationTitle("Popular Movies")
+        .navigationDestination(for: AppMovie.self) { movie in
+            MovieDetailsView(viewModel: MovieDetailsViewModel(movie: movie))
+        }
+    }
+    
     private func rowContentView(movie: AppMovie) -> some View {
         HStack(spacing: 16) {
             PosterView(movie: movie,
@@ -47,13 +52,7 @@ struct MoviesView: View {
     private func infoStack(movie: AppMovie) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             movieTitleView(movie: movie)
-            VStack(alignment: .leading, spacing: 8) {
-                HStack(spacing: 10) {
-                    RatingStarView(frameWidth: 20, frameHeight: 20)
-                    VoteAverageView(movie: movie, font: .system(size: 16))
-                }
-                movieReleaseDateView(movie: movie)
-            }
+            ratingAndReleaseView(movie: movie)
         }
     }
     
@@ -61,6 +60,20 @@ struct MoviesView: View {
         Text(movie.title)
             .font(.system(size: 16, weight: .bold))
             .foregroundStyle(.white)
+    }
+    
+    private func ratingAndReleaseView(movie: AppMovie) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ratingView(movie: movie)
+            movieReleaseDateView(movie: movie)
+        }
+    }
+    
+    private func ratingView(movie: AppMovie) -> some View {
+        HStack(spacing: 10) {
+            RatingStarView(frameWidth: 20, frameHeight: 20)
+            VoteAverageView(movie: movie, font: .system(size: 16))
+        }
     }
     
     private func movieReleaseDateView(movie: AppMovie) -> some View {
