@@ -11,9 +11,7 @@ import NatenWorking
 class PersonsViewModel: ObservableObject {
     
     //MARK: - Properties
-    @Published var allPersons = [Person]()
-    private let url = ""
-    let baseUrl = "https://image.tmdb.org/t/p/w500"
+    @Published var allPersons = [AppPerson]()
     
     //MARK: - Init
     init() {
@@ -22,12 +20,20 @@ class PersonsViewModel: ObservableObject {
     
     //MARK: - Network Call
     private func fetchPersons() {
+        let url = ApiManager.personsBaseUrl + ApiManager.apiKey
+        
         Task {
-            if let persons: ApiResponse = try? await NetworkManager().performURLRequest(url) {
-                await MainActor.run {
-                    allPersons = persons.results
+            do {
+                if let persons: AppPersonsResponse = try await NetworkManager().performURLRequest(url) {
+                    await MainActor.run {
+                        allPersons = persons.results
+                    }
                 }
+            } catch {
+                print("Error fetching persons: \(error)")
             }
         }
     }
+    
+    
 }

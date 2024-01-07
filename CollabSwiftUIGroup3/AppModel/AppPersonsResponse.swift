@@ -14,14 +14,12 @@ struct AppPersonsResponse: Decodable {
 struct AppPerson: Decodable, Identifiable {
     let id: Int
     let name: String
-    let originalName: String
-    let profilePath: String
-    let knownFor: [AppWork]
+    let profilePath: String?
+    let knownFor: [AppWork]?
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case originalName = "original_name"
         case profilePath = "profile_path"
         case knownFor = "known_for"
     }

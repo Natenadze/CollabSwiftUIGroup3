@@ -8,16 +8,12 @@
 import Foundation
 
 class PersonDetailsViewModel {
-    
+
     //MARK: - Properties
-    
-    var person: Person
-    let baseUrl: String
+    var person: AppPerson
     
     //MARK: - Init
-    
-    init(person: Person, baseUrl: String) {
+    init(person: AppPerson) {
         self.person = person
-        self.baseUrl = baseUrl
     }
 }

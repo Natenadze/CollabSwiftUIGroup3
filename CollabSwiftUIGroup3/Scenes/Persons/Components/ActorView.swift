@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ActorView: View {
-    //MARK: - Properties
     
-    var person: Person
+    //MARK: - Properties
+    var person: AppPerson
     
     //MARK: - Body
-    
     var body: some View {
         VStack {
             Text(person.name)
                 .frame(maxWidth: .infinity)
-                .font(.system(size: 18))
+                .font(.system(size: 16))
                 .foregroundStyle(.white)
         }
         .padding()
