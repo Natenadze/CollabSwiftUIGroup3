@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AppCinemaRatingBarView: View {
-    
-    
     // MARK: - Properties
     var selected: Double
     

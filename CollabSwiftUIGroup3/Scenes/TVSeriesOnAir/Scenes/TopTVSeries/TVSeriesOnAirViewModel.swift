@@ -10,9 +10,8 @@ import NatenWorking
 
 final class TVSeriesOnAirViewModel: ObservableObject {
     // MARK: - Properties
-    @Published private(set) var allTVSeriesOnAir = [TVSeriesOnAir]()
-    
-    private let key = ""
+    @Published private(set) var allTVSeriesOnAir = [AppTVSeriesOnAir]()
+    private let url = ApiManager.topSeriesBaseUrl + ApiManager.apiKey
     
     // MARK: - Init
     init() {
@@ -21,9 +20,8 @@ final class TVSeriesOnAirViewModel: ObservableObject {
     
     // MARK: - Methods
     private func fetchSeries() {
-        let url = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(key)"
         Task {
-            if let TVSeriesOnAir: TVSeriesOnAirResponse = try await NetworkManager().performURLRequest(url) {
+            if let TVSeriesOnAir: AppMovieSeriesResponse = try await NetworkManager().performURLRequest(url) {
                 await MainActor.run {
                     allTVSeriesOnAir = TVSeriesOnAir.results
                 }

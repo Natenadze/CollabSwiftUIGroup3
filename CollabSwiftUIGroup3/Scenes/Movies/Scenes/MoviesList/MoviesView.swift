@@ -10,32 +10,29 @@ import SwiftUI
 struct MoviesView: View {
     // MARK: - Properties
     @StateObject private var viewModel = MoviesViewModel()
-    @State var path = NavigationPath()
-    
-    private let backgroundColor = Color(red: 18/255, green: 18/255, blue: 18/255)
     
     // MARK: - Body
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             List(viewModel.allMovies) { movie in
                 NavigationLink(value: movie) {
                     rowContentView(movie: movie)
                 }
-                .listRowBackground(backgroundColor)
+                .listRowBackground(Color.appBackgroundColor)
             }
-            .navigationDestination(for: Movie.self) { movie in
-                MovieDetailsView(viewModel: MovieDetailsViewModel(movie: movie, path: $path))
-            }
-            .background(backgroundColor)
+            .background(Color.appBackgroundColor)
             .scrollContentBackground(.hidden)
             .listStyle(GroupedListStyle())
             .navigationTitle("Popular Movies")
             .preferredColorScheme(.dark)
+            .navigationDestination(for: AppMovie.self) { movie in
+                MovieDetailsView(viewModel: MovieDetailsViewModel(movie: movie))
+            }
         }
     }
     
     // MARK: - Content
-    private func rowContentView(movie: Movie) -> some View {
+    private func rowContentView(movie: AppMovie) -> some View {
         HStack(spacing: 16) {
             PosterView(movie: movie,
                        posterPath: movie.posterPath,
@@ -47,7 +44,7 @@ struct MoviesView: View {
     }
     
     // MARK: - InfoStack
-    private func infoStack(movie: Movie) -> some View {
+    private func infoStack(movie: AppMovie) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             movieTitleView(movie: movie)
             VStack(alignment: .leading, spacing: 8) {
@@ -60,13 +57,13 @@ struct MoviesView: View {
         }
     }
     
-    private func movieTitleView(movie: Movie) -> some View {
+    private func movieTitleView(movie: AppMovie) -> some View {
         Text(movie.title)
             .font(.system(size: 16, weight: .bold))
             .foregroundStyle(.white)
     }
     
-    private func movieReleaseDateView(movie: Movie) -> some View {
+    private func movieReleaseDateView(movie: AppMovie) -> some View {
         Text("\(movie.releaseDate)")
             .font(.system(size: 14))
             .foregroundStyle(.white)

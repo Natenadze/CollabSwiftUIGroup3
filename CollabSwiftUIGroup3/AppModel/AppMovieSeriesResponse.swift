@@ -11,7 +11,7 @@ struct AppMovieSeriesResponse: Decodable {
     let results: [AppTVSeriesOnAir]
 }
 
-struct AppTVSeriesOnAir: Decodable, Hashable {
+struct AppTVSeriesOnAir: Decodable, Hashable, Identifiable {
     let id: Int
     let overview: String
     let posterPath, firstAirDate, name: String

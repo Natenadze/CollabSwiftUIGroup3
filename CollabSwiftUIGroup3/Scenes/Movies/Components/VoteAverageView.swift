@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VoteAverageView: View {
     // MARK: - Properties
-    let movie: Movie
+    let movie: AppMovie
     let font: Font
     
     // MARK: - Body
