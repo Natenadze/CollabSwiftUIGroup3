@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ActorView: View {
     //MARK: - Properties
-    var person: AppPerson
+    var name: String
     
     //MARK: - Body
     var body: some View {
         VStack {
-            Text(person.name)
+            Text(name)
                 .frame(maxWidth: .infinity)
                 .font(.system(size: 16))
                 .foregroundStyle(.white)

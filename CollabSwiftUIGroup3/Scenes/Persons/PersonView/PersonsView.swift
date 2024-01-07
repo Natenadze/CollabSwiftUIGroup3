@@ -21,7 +21,7 @@ struct PersonsView: View {
                         NavigationLink(destination: PersonDetailsView(viewModel: PersonDetailsViewModel(person: person))) {
                             VStack {
                                 ActorPhotoView(person: person)
-                                ActorView(person: person)
+                                ActorView(name: person.name)
                             }
                         }
                     }

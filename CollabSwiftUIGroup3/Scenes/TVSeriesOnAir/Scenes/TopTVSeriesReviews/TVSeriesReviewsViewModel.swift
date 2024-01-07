@@ -16,6 +16,7 @@ final class TVSeriesReviewsViewModel: ObservableObject {
     // MARK: - Init
     init(series: AppTVSeriesOnAir) {
         self.series = series
+        fetchReviews()
     }
     
     // MARK: - Methods
