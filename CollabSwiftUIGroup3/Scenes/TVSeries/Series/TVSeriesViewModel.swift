@@ -28,4 +28,14 @@ final class TVSeriesViewModel: ObservableObject {
             }
         }
     }
+    
+    func getGridInfoModel(from show: AppTVSeriesOnAir) -> GridInfoModel {
+        GridInfoModel(
+            id: show.id,
+            name: show.name,
+            rating: show.voteAverage,
+            posterUrl: show.posterPath,
+            date: show.firstAirDate
+        )
+    }
 }
