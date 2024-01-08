@@ -28,7 +28,7 @@ struct PersonDetailsView: View {
 }
 
 extension PersonDetailsView {
-    var textKnownFor: some View {
+    private var textKnownFor: some View {
         Text("Known For:")
             .font(.title)
     }

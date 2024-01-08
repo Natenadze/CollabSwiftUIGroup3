@@ -12,6 +12,7 @@ final class CinemaMoviesViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var allCinemaMovies = [AppMovie]()
+    private let url = ApiManager.cinemaBaseUrl + ApiManager.apiKey
     
     // MARK: - Init
     init() {
@@ -20,8 +21,6 @@ final class CinemaMoviesViewModel: ObservableObject {
     
     // MARK: - Methods
     private func fetchMovieCinemas() {
-        let url = ApiManager.cinemaBaseUrl + ApiManager.apiKey
-        
         Task {
             if let result: AppMoviesResponse = try? await NetworkManager().performURLRequest(url) {
                 await MainActor.run {
