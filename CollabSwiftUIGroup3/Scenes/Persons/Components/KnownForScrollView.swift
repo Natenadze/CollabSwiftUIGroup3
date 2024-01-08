@@ -18,6 +18,7 @@ struct KnownForScrollView: View {
             VStack {
                 Text(movie.title ?? "")
                     .font(.system(size: 10))
+                
                 ImageManager(imageUrl: ApiManager.imageBaseUrl + (movie.posterPath ?? ""))
             }
         }

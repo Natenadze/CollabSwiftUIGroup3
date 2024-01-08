@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PersonDetailsViewModel {
+final class PersonDetailsViewModel {
     //MARK: - Properties
     var person: AppPerson
     

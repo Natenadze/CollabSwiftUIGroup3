@@ -10,8 +10,7 @@ import SwiftUI
 struct CinemaMoviesView: View {
     // MARK: - Properties
     @StateObject private var viewModel = CinemaMoviesViewModel()
-    
-    let gridItems: [GridItem] = [
+    private let gridItems: [GridItem] = [
         GridItem(.adaptive(minimum: 150, maximum: 250), spacing: 20)
     ]
     
