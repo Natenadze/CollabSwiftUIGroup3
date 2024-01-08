@@ -32,8 +32,16 @@ struct TVSeriesView: View {
     private func seriesGridView() -> some View {
         LazyVGrid(columns: gridItems, spacing: 12) {
             ForEach(viewModel.seriesCollection) { show in
+                let model = GridInfoModel(
+                    id: show.id,
+                    name: show.name,
+                    rating: show.voteAverage,
+                    posterUrl: show.posterPath,
+                    date: show.firstAirDate
+                )
+                
                 NavigationLink(destination: TVSeriesDetailsPage(series: show)) {
-                    AppGridView(series: show)
+                    AppGridView(series: model)
                 }
             }
         }

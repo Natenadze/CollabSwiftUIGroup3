@@ -38,13 +38,21 @@ private extension CinemaMoviesView {
             ScrollView {
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ForEach(viewModel.allCinemaMovies) { movie in
-                        NavigationLink(value: movie) {
-                            CinemaMovieGridView(movie: movie)
+                        let model = GridInfoModel(
+                            id: movie.id,
+                            name: movie.title,
+                            rating: movie.voteAverage,
+                            posterUrl: movie.posterPath,
+                            date: movie.releaseDate
+                        )
+                        
+                        NavigationLink(value: model) {
+                            AppGridView(series: model)
                         }
                     }
                 }
                 .navigationTitle("Now in Cinemas")
-                .navigationDestination(for: AppMovie.self) { movie in
+                .navigationDestination(for: GridInfoModel.self) { movie in
                     CinemaMovieReviewsView(viewModel: CinemaMovieReviewViewModel(movieID: movie.id))
                 }
                 
