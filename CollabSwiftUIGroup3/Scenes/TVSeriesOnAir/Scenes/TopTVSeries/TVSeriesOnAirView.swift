@@ -20,8 +20,16 @@ struct TVSeriesOnAirView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(viewModel.allTVSeriesOnAir) { series in
+                        let model = GridInfoModel(
+                            id: series.id,
+                            name: series.name,
+                            rating: series.voteAverage,
+                            posterUrl: series.posterPath,
+                            date: series.firstAirDate
+                        )
+                        
                         NavigationLink(value: series) {
-                            AppGridView(series: series)
+                            AppGridView(series: model)
                         }
                     }
                 }

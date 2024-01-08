@@ -7,22 +7,26 @@
 
 import SwiftUI
 
+protocol GridInfoProtocol {
+    var name: String { get }
+    var rating: Double { get }
+    var posterUrl: String { get }
+    var date: String { get }
+}
+
 struct AppGridView: View {
     // MARK: - Properties
-    let series: AppTVSeriesOnAir
+    let series: GridInfoModel
     
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            seriesImage(series: series)
+            ImageManager(imageUrl: ApiManager.imageBaseUrl + series.posterUrl)
             
             VStack(alignment: .leading, spacing: 4) {
-                HStack(alignment: .center, spacing: 8) {
-                    AppCinemaRatingBarView(selected: series.voteAverage)
-                    seriesRating(series: series)
-                }
-                seriesName(series: series)
-                seriesDate(series: series)
+                seriesRating
+                seriesName
+                seriesDate
             }
             .padding(.horizontal, 6)
             .padding(.bottom, 6)
@@ -30,36 +34,30 @@ struct AppGridView: View {
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
-    
-    // MARK: - Content
-    private func seriesImage(series: AppTVSeriesOnAir) -> some View {
-        AsyncImage(url: URL(string: (ApiManager.imageBaseUrl) + (series.posterPath))) { image in
-            image.resizable()
-                .scaledToFill()
-        } placeholder: {
-            Image(systemName: "photo.fill")
-                .resizable()
-                .frame(height: 200)
-                .frame(maxWidth: .infinity)
-                .foregroundStyle(.gray)
+}
+
+// MARK: - Extension
+private extension AppGridView {
+    var seriesRating: some View {
+        HStack(alignment: .center, spacing: 8) {
+            AppCinemaRatingBarView(selected: series.rating)
+            
+            Text("\(series.rating, specifier: "%.1f")")
+                .font(.system(size: 16))
+                .foregroundStyle(.black.opacity(0.8))
         }
+        
     }
     
-    private func seriesRating(series: AppTVSeriesOnAir) -> some View {
-        Text("\(series.voteAverage, specifier: "%.1f")")
-            .font(.system(size: 16))
-            .foregroundStyle(.black.opacity(0.8))
-    }
-    
-    private func seriesName(series: AppTVSeriesOnAir) -> some View {
+    var seriesName: some View {
         Text(series.name)
             .font(.system(size: 18, weight: .medium))
             .foregroundStyle(.black)
             .lineLimit(1)
     }
     
-    private func seriesDate(series: AppTVSeriesOnAir) -> some View {
-        Text(series.firstAirDate)
+    var seriesDate: some View {
+        Text(series.date)
             .font(.system(size: 14))
             .foregroundStyle(.black.opacity(0.8))
     }

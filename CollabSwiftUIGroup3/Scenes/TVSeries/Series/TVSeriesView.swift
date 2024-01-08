@@ -15,33 +15,39 @@ struct TVSeriesView: View {
     //MARK: - Body
     var body: some View {
         NavigationStack {
-            seriesCollectionView()
-        }
-    }
-    
-    //MARK: - Content
-    private func seriesCollectionView() -> some View {
-        ScrollView {
-            seriesGridView()
-        }
-        .navigationTitle("TV Shows")
-        .preferredColorScheme(.dark)
-        .background(Color.appBackgroundColor)
-    }
-    
-    private func seriesGridView() -> some View {
-        LazyVGrid(columns: gridItems, spacing: 12) {
-            ForEach(viewModel.seriesCollection) { show in
-                NavigationLink(destination: TVSeriesDetailsPage(series: show)) {
-                    AppGridView(series: show)
-                }
-            }
+            seriesCollectionView
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        TVSeriesView()
+// MARK: - Extension
+extension TVSeriesView {
+    private var seriesCollectionView: some View {
+        ScrollView {
+            seriesGridView
+        }
+        .navigationTitle("TV Shows")
+        .background(Color.appBackgroundColor)
     }
+    
+    private var seriesGridView: some View {
+        LazyVGrid(columns: gridItems, spacing: 12) {
+            ForEach(viewModel.seriesCollection) { series in
+                navigationToTvSeriesDetails(series: series)
+            }
+        }
+    }
+    
+    private func navigationToTvSeriesDetails(series: AppTVSeriesOnAir) -> some View {
+        let model = viewModel.getGridInfoModel(from: series)
+        return NavigationLink(destination: TVSeriesDetailsPage(series: series)) {
+            AppGridView(series: model)
+        }
+    }
+}
+
+
+// MARK: - Preview
+#Preview {
+    TVSeriesView()
 }

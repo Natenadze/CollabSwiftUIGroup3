@@ -14,48 +14,46 @@ struct TVSeriesDetailsPage: View {
     //MARK: - Body
     var body: some View {
         ScrollView {
-            seriesDetailsContent()
+            seriesDetailsContent
         }
         .navigationTitle(series.name)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+}
+
+// MARK: - Extension
+extension TVSeriesDetailsPage {
     //MARK: - Content
-    private func seriesDetailsContent() -> some View {
+    private var seriesDetailsContent: some View {
         VStack(alignment: .leading, spacing: 15) {
-            imageView(series: series)
-            seriesTitle(series: series)
-            airDate(series: series)
-            votesAverage(series: series)
-            overview(series: series)
+            imageView
+            seriesTitle
+            airDate
+            votesAverage
+            overview
         }
         .padding()
         .foregroundColor(.white)
     }
-    
-    private func imageView(series: AppTVSeriesOnAir) -> some View {
-        AsyncImage(url: URL(string: (ApiManager.imageBaseUrl) + (series.posterPath))) { image in
-            image.resizable()
-                .scaledToFill()
-        } placeholder: {
-            Image(systemName: "photo.fill")
-                .resizable()
-                .frame(height: 200)
-                .frame(maxWidth: .infinity)
-                .foregroundStyle(.gray)
-        }
+}
+
+// MARK: - Components
+private extension TVSeriesDetailsPage {
+    var imageView: some View {
+        let url = ApiManager.imageBaseUrl + series.posterPath
+        return ImageManager(imageUrl: url)
     }
     
-    private func seriesTitle(series: AppTVSeriesOnAir) -> some View {
+    var seriesTitle: some View {
         Text(series.name)
             .font(.title)
     }
     
-    private func airDate(series: AppTVSeriesOnAir) -> some View {
+    var airDate: some View {
         Text("\(series.firstAirDate)")
     }
     
-    private func votesAverage(series: AppTVSeriesOnAir) -> some View {
+    var votesAverage: some View {
         HStack{
             Image(systemName: "star.fill")
                 .foregroundColor(.yellow)
@@ -66,17 +64,9 @@ struct TVSeriesDetailsPage: View {
         }
     }
     
-    private func overview(series: AppTVSeriesOnAir) -> some View {
+    var overview: some View {
         Text("\(series.overview)")
             .font(.body)
             .foregroundColor(.white)
-    }
-    
-    private func placeHolderImage() -> some View {
-        Image(systemName: "photo.fill")
-            .resizable()
-            .frame(height: 200)
-            .frame(maxWidth: .infinity)
-            .foregroundStyle(.gray)
     }
 }
